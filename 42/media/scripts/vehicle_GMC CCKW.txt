@@ -21,9 +21,9 @@ module Base
         
         mechanicType = 3,
         engineRepairLevel = 2,
-        mass = 4500,
+        mass = 1600,
         offRoadEfficiency = 0.9,
-        engineForce = 6500,
+        engineForce = 5000,
         engineQuality = 60,
         engineLoudness = 130,
         maxSpeed = 80f,
@@ -40,14 +40,19 @@ module Base
         rearEndHealth = 200,
         seats = 4,
         
-        gears = 5,
-        gearRatio = NaN -0.065 0 0.1 0.065 0.04 0.03 0.02,
+        gearRatioCount = 5,
+        gearRatioR = 3.5,
+        gearRatio1 = 4.11,
+        gearRatio2 = 2.50,
+        gearRatio3 = 1.65,
+        gearRatio4 = 1.25,
+        gearRatio5 = 0.80,
         
         suspensionStiffness = 40,
         suspensionCompression = 4.44,
         suspensionDamping = 2.88,
         maxSuspensionTravelCm = 12,
-        suspensionRestLength = 0.44,
+        suspensionRestLength = 0.25,
         
         wheelFriction = 1.5f,
         
@@ -241,7 +246,7 @@ module Base
         template = Seat/part/SeatFrontLeft,
         template = Seat/part/SeatFrontRight,
         
-        template = TruckBedOpen,
+        template = Trunk/part/TruckBedOpen,
         
         part TruckBedOpen
         {
