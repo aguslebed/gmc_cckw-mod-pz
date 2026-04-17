@@ -1,0 +1,260 @@
+module Base
+{
+    model GMCCCKW
+    {
+        mesh = vehicles/Vehicles_PickUpTruck,
+        shader = vehicle_multiuv,
+        invertX = FALSE,
+        scale = 0.01,
+    }
+    
+    vehicle GMCCCKW
+    {
+        name = GMCCCKW,
+        
+        model
+        {
+            file = GMCCCKW,
+            scale = 2.4,
+            offset = 0.0 0.35 0.0,
+        }
+        
+        mechanicType = 3,
+        engineRepairLevel = 2,
+        mass = 4500,
+        offRoadEfficiency = 0.9,
+        engineForce = 6500,
+        engineQuality = 60,
+        engineLoudness = 130,
+        maxSpeed = 80f,
+        brakingForce = 90,
+        rollInfluence = 0.6f,
+        steeringIncrement = 0.020,
+        steeringClamp = 0.3,
+        extents = 1.10 0.80 2.60,
+        physicsChassisShape = 1.10 0.80 2.60,
+        centerOfMassOffset = 0.0 0.4 0.0,
+        dragForce = 3.5,
+        lockTime = 0.3,
+        frontEndHealth = 200,
+        rearEndHealth = 200,
+        seats = 4,
+        
+        gears = 5,
+        gearRatio = NaN -0.065 0 0.1 0.065 0.04 0.03 0.02,
+        
+        suspensionStiffness = 40,
+        suspensionCompression = 4.44,
+        suspensionDamping = 2.88,
+        maxSuspensionTravelCm = 12,
+        suspensionRestLength = 0.44,
+        
+        wheelFriction = 1.5f,
+        
+        wheel FrontLeft
+        {
+            front = true,
+            offset = 0.4800 -0.4500 0.9500,
+            radius = 0.24f,
+            width = 0.28f,
+        }
+        
+        wheel FrontRight
+        {
+            front = true,
+            offset = -0.4800 -0.4500 0.9500,
+            radius = 0.24f,
+            width = 0.28f,
+        }
+        
+        wheel RearLeft
+        {
+            front = false,
+            offset = 0.4800 -0.4500 -0.8000,
+            radius = 0.24f,
+            width = 0.28f,
+        }
+        
+        wheel RearRight
+        {
+            front = false,
+            offset = -0.4800 -0.4500 -0.8000,
+            radius = 0.24f,
+            width = 0.28f,
+        }
+        
+        area Engine
+        {
+            xywh = 0.0000 1.3297 0.8681 0.4725,
+        }
+        
+        area TruckBed
+        {
+            xywh = 0.0000 -0.7912 1.8132 1.4945,
+        }
+        
+        area GasTank
+        {
+            xywh = 0.6703 -0.5879 0.4725 0.4725,
+        }
+        
+        area TireFrontLeft
+        {
+            xywh = 0.6703 0.7582 0.4725 0.4725,
+        }
+        
+        area TireFrontRight
+        {
+            xywh = -0.6703 0.7582 0.4725 0.4725,
+        }
+        
+        area TireRearLeft
+        {
+            xywh = 0.6703 -0.5879 0.4725 0.4725,
+        }
+        
+        area TireRearRight
+        {
+            xywh = -0.6703 -0.5879 0.4725 0.4725,
+        }
+        
+        area SeatFrontLeft
+        {
+            xywh = 0.3462 0.2747 0.4725 0.4725,
+        }
+        
+        area SeatFrontRight
+        {
+            xywh = -0.3462 0.2747 0.4725 0.4725,
+        }
+        
+        passenger FrontLeft
+        {
+            position inside
+            {
+                offset = 0.1758 -0.1374 0.0659,
+                rotate = 0.0000 0.0000 0.0000,
+            }
+            
+            position outside
+            {
+                offset = 0.5934 -0.4670 0.1813,
+                rotate = 0.0000 0.0000 0.0000,
+                area = SeatFrontLeft,
+            }
+        }
+        
+        passenger FrontRight
+        {
+            position inside
+            {
+                offset = -0.1758 -0.1374 0.0659,
+                rotate = 0.0000 0.0000 0.0000,
+            }
+            
+            position outside
+            {
+                offset = -0.5934 -0.4670 0.1813,
+                rotate = 0.0000 0.0000 0.0000,
+                area = SeatFrontRight,
+            }
+        }
+        
+        passenger RearLeft
+        {
+            position inside
+            {
+                offset = 0.1758 -0.1374 -0.5000,
+                rotate = 0.0000 0.0000 0.0000,
+            }
+            
+            position outside
+            {
+                offset = 0.5934 -0.4670 -0.8000,
+                rotate = 0.0000 0.0000 0.0000,
+                area = TruckBed,
+            }
+        }
+        
+        passenger RearRight
+        {
+            position inside
+            {
+                offset = -0.1758 -0.1374 -0.5000,
+                rotate = 0.0000 0.0000 0.0000,
+            }
+            
+            position outside
+            {
+                offset = -0.5934 -0.4670 -0.8000,
+                rotate = 0.0000 0.0000 0.0000,
+                area = TruckBed,
+            }
+        }
+        
+        template = Engine,
+        template = Battery,
+        template = GasTank,
+        template = Muffler,
+        template = EngineDoor,
+        template = GloveBox,
+        
+        part GasTank
+        {
+            container
+            {
+                capacity = 150,
+            }
+        }
+        
+        part Heater
+        {
+            area = Engine,
+            category = engine,
+            
+            lua
+            {
+                update = Vehicles.Update.Heater,
+            }
+        }
+        
+        part PassengerCompartment
+        {
+            area = Engine,
+            category = nodisplay,
+            
+            lua
+            {
+                update = Vehicles.Update.PassengerCompartment,
+            }
+        }
+        
+        template = Windshield/part/Windshield,
+        template = Windshield/part/WindshieldRear,
+        
+        template = Door/part/DoorFrontLeft,
+        template = Door/part/DoorFrontRight,
+        
+        template = Window/part/WindowFrontLeft,
+        template = Window/part/WindowFrontRight,
+        
+        template = Seat/part/SeatFrontLeft,
+        template = Seat/part/SeatFrontRight,
+        
+        template = TruckBedOpen,
+        
+        part TruckBedOpen
+        {
+            container
+            {
+                capacity = 450,
+            }
+        }
+        
+        template = Tire,
+        template = Brake,
+        template = Suspension,
+        template = Radio,
+        template = Headlight,
+    }
+}
