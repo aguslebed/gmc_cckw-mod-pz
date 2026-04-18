@@ -2,8 +2,9 @@ module Base
 {
     model GMCCCKW
     {
-        mesh = vehicles/Vehicles_PickUpTruck,
-        shader = vehicle_multiuv,
+        mesh = Meshy_AI_WWII_US_Army_Cargo_Tr_0418222005_texture,
+        texture = Meshy_AI_WWII_US_Army_Cargo_Tr_0418222005_texture,
+        shader = vehicle,
         invertX = FALSE,
         scale = 0.01,
     }
@@ -31,8 +32,10 @@ module Base
         rollInfluence = 0.6f,
         steeringIncrement = 0.020,
         steeringClamp = 0.3,
-        extents = 1.10 0.80 2.60,
-        physicsChassisShape = 1.10 0.80 2.60,
+        extents = 0.55 0.80 1.30,
+        shadowExtents = 0.55 1.30,
+        shadowOffset = 0.0 0.0,
+        physicsChassisShape = 0.55 0.80 1.30,
         centerOfMassOffset = 0.0 0.4 0.0,
         dragForce = 3.5,
         lockTime = 0.3,
@@ -125,12 +128,12 @@ module Base
         
         area SeatFrontLeft
         {
-            xywh = 0.3462 0.2747 0.4725 0.4725,
+            xywh = 0.6500 0.2747 0.4725 0.4725,
         }
         
         area SeatFrontRight
         {
-            xywh = -0.3462 0.2747 0.4725 0.4725,
+            xywh = -0.6500 0.2747 0.4725 0.4725,
         }
         
         passenger FrontLeft
@@ -143,7 +146,7 @@ module Base
             
             position outside
             {
-                offset = 0.5934 -0.4670 0.1813,
+                offset = 0.6500 -0.4670 0.1813,
                 rotate = 0.0000 0.0000 0.0000,
                 area = SeatFrontLeft,
             }
@@ -159,7 +162,7 @@ module Base
             
             position outside
             {
-                offset = -0.5934 -0.4670 0.1813,
+                offset = -0.6500 -0.4670 0.1813,
                 rotate = 0.0000 0.0000 0.0000,
                 area = SeatFrontRight,
             }
@@ -175,7 +178,7 @@ module Base
             
             position outside
             {
-                offset = 0.5934 -0.4670 -0.8000,
+                offset = 0.6500 -0.4670 -0.8000,
                 rotate = 0.0000 0.0000 0.0000,
                 area = TruckBed,
             }
@@ -191,7 +194,7 @@ module Base
             
             position outside
             {
-                offset = -0.5934 -0.4670 -0.8000,
+                offset = -0.6500 -0.4670 -0.8000,
                 rotate = 0.0000 0.0000 0.0000,
                 area = TruckBed,
             }
@@ -252,7 +255,7 @@ module Base
         {
             container
             {
-                capacity = 450,
+                capacity = 600,
             }
         }
         

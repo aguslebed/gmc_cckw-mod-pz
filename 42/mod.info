@@ -1,7 +1,7 @@
-name = GMC CCKW
-id = gmc_cckw
-author = Agustin
-poster = poster.png
-description = GMC CCKW
-icon = icon.png
-category = vehicles
+name=GMC CCKW
+id=gmc_cckw
+author=Agustin
+poster=poster.png
+description=GMC CCKW
+icon=icon.png
+category=vehicles
