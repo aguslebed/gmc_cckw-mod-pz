@@ -1,6 +1,6 @@
 module Base
 {
-    model GMCCCKW
+	model GMCCCKW
     {
         mesh = Meshy_AI_WWII_US_Army_Cargo_Tr_0418222005_texture,
         texture = Meshy_AI_WWII_US_Army_Cargo_Tr_0418222005_texture,
@@ -8,261 +8,282 @@ module Base
         invertX = FALSE,
         scale = 0.01,
     }
-    
-    vehicle GMCCCKW
-    {
-        name = GMCCCKW,
-        
-        model
-        {
-            file = GMCCCKW,
-            scale = 2.4,
-            offset = 0.0 0.35 0.0,
-        }
-        
-        mechanicType = 3,
-        engineRepairLevel = 2,
-        mass = 1600,
-        offRoadEfficiency = 0.9,
-        engineForce = 5000,
-        engineQuality = 60,
-        engineLoudness = 130,
-        maxSpeed = 80f,
-        brakingForce = 90,
-        rollInfluence = 0.6f,
-        steeringIncrement = 0.020,
-        steeringClamp = 0.3,
-        extents = 0.55 0.80 1.30,
-        shadowExtents = 0.55 1.30,
-        shadowOffset = 0.0 0.0,
-        physicsChassisShape = 0.55 0.80 1.30,
-        centerOfMassOffset = 0.0 0.4 0.0,
-        dragForce = 3.5,
-        lockTime = 0.3,
-        frontEndHealth = 200,
-        rearEndHealth = 200,
-        seats = 4,
-        
-        gearRatioCount = 5,
-        gearRatioR = 3.5,
-        gearRatio1 = 4.11,
-        gearRatio2 = 2.50,
-        gearRatio3 = 1.65,
-        gearRatio4 = 1.25,
-        gearRatio5 = 0.80,
-        
-        suspensionStiffness = 40,
-        suspensionCompression = 4.44,
-        suspensionDamping = 2.88,
-        maxSuspensionTravelCm = 12,
-        suspensionRestLength = 0.25,
-        
-        wheelFriction = 1.5f,
-        
-        wheel FrontLeft
-        {
-            front = true,
-            offset = 0.4800 -0.4500 0.9500,
-            radius = 0.24f,
-            width = 0.28f,
-        }
-        
-        wheel FrontRight
-        {
-            front = true,
-            offset = -0.4800 -0.4500 0.9500,
-            radius = 0.24f,
-            width = 0.28f,
-        }
-        
-        wheel RearLeft
-        {
-            front = false,
-            offset = 0.4800 -0.4500 -0.8000,
-            radius = 0.24f,
-            width = 0.28f,
-        }
-        
-        wheel RearRight
-        {
-            front = false,
-            offset = -0.4800 -0.4500 -0.8000,
-            radius = 0.24f,
-            width = 0.28f,
-        }
-        
-        area Engine
-        {
-            xywh = 0.0000 1.3297 0.8681 0.4725,
-        }
-        
-        area TruckBed
-        {
-            xywh = 0.0000 -0.7912 1.8132 1.4945,
-        }
-        
-        area GasTank
-        {
-            xywh = 0.6703 -0.5879 0.4725 0.4725,
-        }
-        
-        area TireFrontLeft
-        {
-            xywh = 0.6703 0.7582 0.4725 0.4725,
-        }
-        
-        area TireFrontRight
-        {
-            xywh = -0.6703 0.7582 0.4725 0.4725,
-        }
-        
-        area TireRearLeft
-        {
-            xywh = 0.6703 -0.5879 0.4725 0.4725,
-        }
-        
-        area TireRearRight
-        {
-            xywh = -0.6703 -0.5879 0.4725 0.4725,
-        }
-        
-        area SeatFrontLeft
-        {
-            xywh = 0.6500 0.2747 0.4725 0.4725,
-        }
-        
-        area SeatFrontRight
-        {
-            xywh = -0.6500 0.2747 0.4725 0.4725,
-        }
-        
-        passenger FrontLeft
-        {
-            position inside
-            {
-                offset = 0.1758 -0.1374 0.0659,
-                rotate = 0.0000 0.0000 0.0000,
-            }
-            
-            position outside
-            {
-                offset = 0.6500 -0.4670 0.1813,
-                rotate = 0.0000 0.0000 0.0000,
-                area = SeatFrontLeft,
-            }
-        }
-        
-        passenger FrontRight
-        {
-            position inside
-            {
-                offset = -0.1758 -0.1374 0.0659,
-                rotate = 0.0000 0.0000 0.0000,
-            }
-            
-            position outside
-            {
-                offset = -0.6500 -0.4670 0.1813,
-                rotate = 0.0000 0.0000 0.0000,
-                area = SeatFrontRight,
-            }
-        }
-        
-        passenger RearLeft
-        {
-            position inside
-            {
-                offset = 0.1758 -0.1374 -0.5000,
-                rotate = 0.0000 0.0000 0.0000,
-            }
-            
-            position outside
-            {
-                offset = 0.6500 -0.4670 -0.8000,
-                rotate = 0.0000 0.0000 0.0000,
-                area = TruckBed,
-            }
-        }
-        
-        passenger RearRight
-        {
-            position inside
-            {
-                offset = -0.1758 -0.1374 -0.5000,
-                rotate = 0.0000 0.0000 0.0000,
-            }
-            
-            position outside
-            {
-                offset = -0.6500 -0.4670 -0.8000,
-                rotate = 0.0000 0.0000 0.0000,
-                area = TruckBed,
-            }
-        }
-        
-        template = Engine,
-        template = Battery,
-        template = GasTank,
-        template = Muffler,
-        template = EngineDoor,
-        template = GloveBox,
-        
-        part GasTank
-        {
-            container
-            {
-                capacity = 150,
-            }
-        }
-        
-        part Heater
-        {
-            area = Engine,
-            category = engine,
-            
-            lua
-            {
-                update = Vehicles.Update.Heater,
-            }
-        }
-        
-        part PassengerCompartment
-        {
-            area = Engine,
-            category = nodisplay,
-            
-            lua
-            {
-                update = Vehicles.Update.PassengerCompartment,
-            }
-        }
-        
-        template = Windshield/part/Windshield,
-        template = Windshield/part/WindshieldRear,
-        
-        template = Door/part/DoorFrontLeft,
-        template = Door/part/DoorFrontRight,
-        
-        template = Window/part/WindowFrontLeft,
-        template = Window/part/WindowFrontRight,
-        
-        template = Seat/part/SeatFrontLeft,
-        template = Seat/part/SeatFrontRight,
-        
-        template = Trunk/part/TruckBedOpen,
-        
-        part TruckBedOpen
-        {
-            container
-            {
-                capacity = 600,
-            }
-        }
-        
-        template = Tire,
-        template = Brake,
-        template = Suspension,
-        template = Radio,
-        template = Headlight,
-    }
+	vehicle GMCCCKW
+	{
+		name = GMCCCKW,
+
+		model
+		{
+			file = GMCCCKW,
+			scale = 2.4000,
+			offset = 0.0000 0.3083 0.0000,
+		}
+
+		mechanicType = 3,
+		engineRepairLevel = 2,
+		mass = 1600,
+		offRoadEfficiency = 0.9,
+		engineForce = 5000,
+		engineQuality = 60,
+		engineLoudness = 130,
+		maxSpeed = 80f,
+		brakingForce = 90,
+		rollInfluence = 0.6f,
+		steeringIncrement = 0.020,
+		steeringClamp = 0.3,
+		extents = 0.9750 0.8000 2.5500,
+		shadowExtents = 0.8667 2.5500,
+		shadowOffset = 0.0000 0.0000,
+		physicsChassisShape = 0.8833 0.8000 2.5500,
+		centerOfMassOffset = 0.0000 0.4000 0.0000,
+		dragForce = 3.5,
+		lockTime = 0.3,
+		frontEndHealth = 200,
+		rearEndHealth = 200,
+		seats = 4,
+		gearRatioCount = 5,
+		gearRatioR = 3.5,
+		gearRatio1 = 4.11,
+		gearRatio2 = 2.50,
+		gearRatio3 = 1.65,
+		gearRatio4 = 1.25,
+		gearRatio5 = 0.80,
+		suspensionStiffness = 40,
+		suspensionCompression = 4.44,
+		suspensionDamping = 2.88,
+		maxSuspensionTravelCm = 12,
+		suspensionRestLength = 0.25,
+		wheelFriction = 1.5f,
+
+		wheel FrontLeft
+		{
+			front = true,
+			offset = 0.3792 -0.4500 0.9500,
+			radius = 0.47f,
+			width = 0.28f,
+		}
+
+		wheel FrontRight
+		{
+			front = true,
+			offset = -0.3792 -0.4500 0.9500,
+			radius = 0.47f,
+			width = 0.28f,
+		}
+
+		wheel RearLeft
+		{
+			front = false,
+			offset = 0.3792 -0.4500 -0.9500,
+			radius = 0.47f,
+			width = 0.28f,
+		}
+
+		wheel RearRight
+		{
+			front = false,
+			offset = -0.3792 -0.4500 -0.9500,
+			radius = 0.47f,
+			width = 0.28f,
+		}
+
+		area Engine
+		{
+			xywh = 0.0000 1.3292 0.8667 0.4750,
+		}
+
+		area TruckBed
+		{
+			xywh = 0.0000 -0.7917 1.8167 1.5000,
+		}
+
+		area GasTank
+		{
+			xywh = 0.6708 -0.5875 0.4750 0.4750,
+		}
+
+		area TireFrontLeft
+		{
+			xywh = 0.6708 0.7583 0.4750 0.4750,
+		}
+
+		area TireFrontRight
+		{
+			xywh = -0.6708 0.7583 0.4750 0.4750,
+		}
+
+		area TireRearLeft
+		{
+			xywh = 0.6708 -0.5875 0.4750 0.4750,
+		}
+
+		area TireRearRight
+		{
+			xywh = -0.6708 -0.5875 0.4750 0.4750,
+		}
+
+		area SeatFrontLeft
+		{
+			xywh = 0.6500 0.2750 0.4750 0.4750,
+		}
+
+		area SeatFrontRight
+		{
+			xywh = -0.6500 0.2750 0.4750 0.4750,
+		}
+
+		passenger FrontLeft
+		{
+			position inside
+			{
+				offset = 0.1750 -0.1375 0.0667,
+				rotate = 0.0000 0.0000 0.0000,
+			}
+
+			position outside
+			{
+				offset = 0.6500 -0.4667 0.1833,
+				rotate = 0.0000 0.0000 0.0000,
+				area = SeatFrontLeft,
+			}
+		}
+
+		passenger FrontRight
+		{
+			position inside
+			{
+				offset = -0.1750 -0.1375 0.0667,
+				rotate = 0.0000 0.0000 0.0000,
+			}
+
+			position outside
+			{
+				offset = -0.6500 -0.4667 0.1833,
+				rotate = 0.0000 0.0000 0.0000,
+				area = SeatFrontRight,
+			}
+		}
+
+		passenger RearLeft
+		{
+			position inside
+			{
+				offset = 0.1750 -0.1375 -0.5000,
+				rotate = 0.0000 0.0000 0.0000,
+			}
+
+			position outside
+			{
+				offset = 0.6500 -0.4667 -0.8000,
+				rotate = 0.0000 0.0000 0.0000,
+				area = TruckBed,
+			}
+		}
+
+		passenger RearRight
+		{
+			position inside
+			{
+				offset = -0.1750 -0.1375 -0.5000,
+				rotate = 0.0000 0.0000 0.0000,
+			}
+
+			position outside
+			{
+				offset = -0.6500 -0.4667 -0.8000,
+				rotate = 0.0000 0.0000 0.0000,
+				area = TruckBed,
+			}
+		}
+
+		template = Engine,
+		template = Battery,
+		template = GasTank,
+		template = Muffler,
+		template = EngineDoor,
+		template = GloveBox,
+
+		part GasTank
+		{
+			container
+			{
+				capacity = 150,
+			}
+		}
+
+		part Heater
+		{
+			area = Engine,
+			category = engine,
+
+			lua
+			{
+				update = Vehicles.Update.Heater,
+			}
+		}
+
+		part PassengerCompartment
+		{
+			area = Engine,
+			category = nodisplay,
+
+			lua
+			{
+				update = Vehicles.Update.PassengerCompartment,
+			}
+		}
+
+		template = Windshield/part/Windshield,
+		template = Windshield/part/WindshieldRear,
+		template = Door/part/DoorFrontLeft,
+		template = Door/part/DoorFrontRight,
+		template = Window/part/WindowFrontLeft,
+		template = Window/part/WindowFrontRight,
+		template = Seat/part/SeatFrontLeft,
+		template = Seat/part/SeatFrontRight,
+		template = Trunk/part/TruckBedOpen,
+
+		part TruckBedOpen
+		{
+			container
+			{
+				capacity = 600,
+			}
+		}
+
+		template = Tire,
+
+		part TireFrontLeft
+		{
+			model
+			{
+			}
+		}
+
+		part TireFrontRight
+		{
+			model
+			{
+			}
+		}
+
+		part TireRearLeft
+		{
+			model
+			{
+			}
+		}
+
+		part TireRearRight
+		{
+			model
+			{
+			}
+		}
+
+		template = Brake,
+		template = Suspension,
+		template = Radio,
+		template = Headlight,
+	}
 }
